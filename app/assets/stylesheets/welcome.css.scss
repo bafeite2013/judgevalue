@@ -15,7 +15,7 @@
   height: 19px;
   margin: 0 0 4px;
   text-align: left;
-  text-indent: 137px;
+  text-indent: 115px;
 }
 
 #welcome-search-container {
@@ -43,6 +43,27 @@
   margin-right: 5px;
   vertical-align: top;
   width: 418px;
+}
+
+#search-submit {
+  background-color: #DDDDDD;
+  position: 0 -240px;
+  cursor: pointer;
+  font-size: 14px;
+  height: 28px;
+  width: 95px;
+
+}
+
+.search-submit-span {
+  border-style: solid;
+  border-width: 1px;
+  background-position: -120px -240px;
+  display: inline-block;
+  height: 30px;
+  vertical-align: top;
+  width: 97px;
+  z-index: 0;
 }
 
 input {
