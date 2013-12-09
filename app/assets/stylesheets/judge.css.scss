@@ -1,3 +1,22 @@
 // Place all the styles related to the judge controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#buffett {
+  .well {
+    h5 {
+      padding-left: 50px;
+    }
+
+    div {
+      img {
+        width: 600px;
+        height: 480px;
+        border: 1px solid black;
+        margin: 0 auto;
+      }
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+}
