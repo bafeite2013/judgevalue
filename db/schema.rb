@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20131214091918) do
     t.string  "earnings_per_share"
     t.string  "net_assets_per_share"
     t.string  "return_on_equity"
-    t.string  "price_earnings_raiio"
+    t.string  "price_earnings_ratio"
     t.string  "price_book_ratio"
     t.string  "current_liabilities"
     t.string  "end_of_term_cash"

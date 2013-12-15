@@ -7,7 +7,7 @@ class CreateBuffettIndices < ActiveRecord::Migration
       t.string :earnings_per_share
       t.string :net_assets_per_share
       t.string :return_on_equity #净资产收益率
-      t.string :price_earnings_raiio #市盈率
+      t.string :price_earnings_ratio #市盈率
       t.string :price_book_ratio #市净率
       t.string :current_liabilities #流动负债
       t.string :end_of_term_cash #期末现金净额
