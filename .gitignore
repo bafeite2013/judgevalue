@@ -21,6 +21,10 @@
 # Ignore nohup.out
 /nohup.out
 
+# Ignore database dumpfile
+/db/datadump
+/db/seedir
+
 # ignore emacs temp file
 .#*
 \#*#

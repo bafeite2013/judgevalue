@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+load 'db/seedir/stock_seeds.rb'
+load 'db/seedir/buffett_seeds.rb'
