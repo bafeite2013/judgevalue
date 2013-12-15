@@ -20,3 +20,7 @@
 
 # Ignore nohup.out
 /nohup.out
+
+# ignore emacs temp file
+.#*
+\#*#
