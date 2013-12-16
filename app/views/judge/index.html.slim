@@ -1,0 +1,16 @@
+#index-main
+  - if flash[:notice]
+    .flash-notice = flash[:notice]
+  #index-nav
+    a[href="#"] 基本资料
+    a[href="#"] 财务资料
+    a[href="#"] 西子公告
+    a[href="#"] 西子新闻
+    a[href="#"] 股票行情
+    a[href="#"] 理论股价
+
+  = form_tag '/judge/buffett', class:'index-search-container', method:'get' do
+    span.search-text-span
+      = text_field_tag(:code, nil, class:'search-text', placeholder:'股票代码')
+    span.search-submit-span
+      = submit_tag("西子搜索", name:nil, class:'search-submit')

@@ -15,19 +15,19 @@ ActiveRecord::Schema.define(version: 20131214091918) do
 
   create_table "buffett_indices", force: true do |t|
     t.integer "stock_id"
-    t.integer "year"
-    t.string  "earnings_per_share"
-    t.string  "net_assets_per_share"
-    t.string  "return_on_equity"
-    t.string  "price_earnings_ratio"
-    t.string  "price_book_ratio"
-    t.string  "current_liabilities"
-    t.string  "end_of_term_cash"
-    t.string  "business_cash_flow"
-    t.string  "investment_cash_flow"
-    t.string  "financing_cash_flow"
-    t.string  "net_profit"
-    t.string  "net_profit_rate"
+    t.integer "year",                              null: false
+    t.string  "earnings_per_share",   default: "", null: false
+    t.string  "net_assets_per_share", default: "", null: false
+    t.string  "return_on_equity",     default: "", null: false
+    t.string  "price_earnings_ratio", default: "", null: false
+    t.string  "price_book_ratio",     default: "", null: false
+    t.string  "current_liabilities",  default: "", null: false
+    t.string  "end_of_term_cash",     default: "", null: false
+    t.string  "business_cash_flow",   default: "", null: false
+    t.string  "investment_cash_flow", default: "", null: false
+    t.string  "financing_cash_flow",  default: "", null: false
+    t.string  "net_profit",           default: "", null: false
+    t.string  "net_profit_rate",      default: "", null: false
   end
 
   create_table "stocks", force: true do |t|
