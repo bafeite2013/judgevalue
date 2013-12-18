@@ -16,4 +16,6 @@
 //= require turbolinks
 //= require angular
 //= require highcharts
+//= require modules/exporting
+//= require themes/gray
 //= require_tree .
