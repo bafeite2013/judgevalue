@@ -12,6 +12,11 @@ Judgevalue::Application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   get 'judge/buffett' => 'judge#buffett'
+
+  ["earnings_per_share", "net_assets_per_share", "return_on_equity"].each do |name|
+    get "judge/#{name}" => "judge\##{name}"
+  end
+
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 

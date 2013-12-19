@@ -18,10 +18,18 @@
       li: a[href="#member-talk" data-toggle="tab"] 会员讨论
     .tab-content
       #buffett.tab-pane.active
+        .page-header 每股净利润历史变化图
+        .well.well-sm
+          #earnings-per-share[ng-controller="EarningsPerShareController" ng-init="init(#{@stock.id})"]
+            #chart-earnings-per-share
         .page-header 每股净资产历史变化图
         .well.well-sm
-          #earnings-per-share[ng-controller="EarningsPerShareController"]
-            #chartDiv_Eps
+          #earnings-per-share[ng-controller="NetAssetsPerShareController" ng-init="init(#{@stock.id})"]
+            #chart-net-assets-per-share
+        .page-header 净资产收益率历史变化图
+        .well.well-sm
+          #earnings-per-share[ng-controller="ReturnOnEquityController" ng-init="init(#{@stock.id})"]
+            #chart-return-on-equity
       #finance-analy.tab-pane 财务分析
       #xizi-index.tab-pane 西子指数
       #basic-file.tab-pane jibenziliao
