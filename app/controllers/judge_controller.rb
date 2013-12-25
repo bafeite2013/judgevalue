@@ -13,13 +13,22 @@ class JudgeController < ApplicationController
 
 
   def buffett
-    @stock = Stock.find_by(code: params[:code])
 
-    if @stock.nil?
-      flash[:notice] = "stock nonexist! code=#{params[:code]}"
-      redirect_to action: :index
+    respond_to do |format|
+      format.html do
+        @stock = Stock.find_by(code: params[:code])
+
+        if @stock.nil?
+          flash[:notice] = "stock nonexist! code=#{params[:code]}"
+          redirect_to action: :index
+        end
+      end
+
+      format.json do
+        buffettIndexArray = BuffettIndex.where(stock_id: params[:id])
+        render json: buffettIndexArray
+      end
     end
-
   end
 
 

@@ -9,7 +9,12 @@
 #})
 */
 
-var judgeApp = angular.module("judgeApp", []);
+var judgeApp = angular.module("judgeApp", ['ngResource']);
+
+judgeApp.factory("buffettIndices", ['$resource', function($resource) {
+  return $resource('/judge/buffett.json?id=:stock_id',
+                  {stock_id: '@id'});
+}]);
 
 judgeApp.controller("EarningsPerShareController", function ($scope, $http) {
   $scope.init = function(stock_id) {
@@ -53,6 +58,7 @@ judgeApp.controller("EarningsPerShareController", function ($scope, $http) {
       ]
     };
 
+
     $http.get("/judge/earnings_per_share.json?id="+$scope.stock_id).success(
       function(data, status, headers, config) {
         var year_array = [];
@@ -67,6 +73,9 @@ judgeApp.controller("EarningsPerShareController", function ($scope, $http) {
         chart.get('earnings_per_share').setData(data_array);
       }
     );
+
+
+
 
   };
 
