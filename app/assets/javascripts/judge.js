@@ -11,18 +11,17 @@
 
 var judgeApp = angular.module("judgeApp", ['ngResource']);
 
-judgeApp.factory("buffettIndices", ['$resource', function($resource) {
-  return $resource('/judge/buffett.json?id=:stock_id',
-                  {stock_id: '@id'});
+judgeApp.factory("buffett", ['$resource', function($resource) {
+  return $resource('/judge/buffett.json');
 }]);
 
-judgeApp.controller("EarningsPerShareController", function ($scope, $http) {
-  $scope.init = function(stock_id) {
+judgeApp.controller("EarningsPerShareController", ["$scope", "$http", "buffett", function ($scope, $http, buffett) {
+  $scope.init = function(stock_id, columns) {
     $scope.stock_id = stock_id;
 
     var options={
       chart: { type: 'line' },
-      title: { text: '每股净利润历史变化图' },
+      title: { text: '' },
       xAxis: {
         categories: [],
         lineWidth: 2
@@ -58,28 +57,21 @@ judgeApp.controller("EarningsPerShareController", function ($scope, $http) {
       ]
     };
 
-
-    $http.get("/judge/earnings_per_share.json?id="+$scope.stock_id).success(
-      function(data, status, headers, config) {
-        var year_array = [];
-        var data_array = [];
-        for (var index in data) {
-          year_array[index] = data[index].year;
-          data_array[index] = Number(data[index].earnings_per_share);
-        }
-        options.xAxis.categories=year_array;
-        $('#chart-earnings-per-share').highcharts(options);
-        var chart = $('#chart-earnings-per-share').highcharts();
-        chart.get('earnings_per_share').setData(data_array);
+    indices = buffett.query({id: stock_id}, function() {
+      var year_array = [];
+      var data_array = [];
+      for (var index in indices) {
+        year_array[index] = indices[index].year;
+        data_array[index] = Number(indices[index].earnings_per_share);
       }
-    );
-
-
-
-
+      options.xAxis.categories=year_array;
+      $('#chart-earnings-per-share').highcharts(options);
+      var chart = $('#chart-earnings-per-share').highcharts();
+      chart.get('earnings_per_share').setData(data_array);
+    });
   };
 
-});
+}]);
 
 judgeApp.controller("NetAssetsPerShareController", function ($scope, $http) {
   $scope.init = function(stock_id) {

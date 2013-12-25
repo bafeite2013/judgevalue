@@ -15,6 +15,7 @@
 //= require bootstrap.min
 //= require turbolinks
 //= require angular
+//= require angular-resource
 //= require highcharts
 //= require modules/exporting
 //= require themes/gray
