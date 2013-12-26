@@ -20,16 +20,17 @@
       #buffett.tab-pane.active
         .page-header 每股净利润历史变化图
         .well.well-sm
-          #earnings-per-share[ng-controller="EarningsPerShareController" ng-init="init(#{@stock.id})"]
+          div[ng-controller="LineDiagramController" ng-init="init(#{@stock.id}, '每股净利润历史变化图', {'earnings_per_share':'Earnings Per Share'}, '#chart-earnings-per-share')"]
             #chart-earnings-per-share
         .page-header 每股净资产历史变化图
         .well.well-sm
-          #earnings-per-share[ng-controller="NetAssetsPerShareController" ng-init="init(#{@stock.id})"]
+          div[ng-controller="LineDiagramController" ng-init="init(#{@stock.id}, '每股净资产历史变化图', {'net_assets_per_share':'Net Assets Per Share'}, '#chart-net-assets-per-share')"]
             #chart-net-assets-per-share
         .page-header 净资产收益率历史变化图
         .well.well-sm
-          #earnings-per-share[ng-controller="ReturnOnEquityController" ng-init="init(#{@stock.id})"]
+          div[ng-controller="LineDiagramController" ng-init="init(#{@stock.id}, '净资产收益率历史变化图', {'return_on_equity':'Return On Equity'}, '#chart-return-on-equity')"]
             #chart-return-on-equity
+
       #finance-analy.tab-pane 财务分析
       #xizi-index.tab-pane 西子指数
       #basic-file.tab-pane jibenziliao
