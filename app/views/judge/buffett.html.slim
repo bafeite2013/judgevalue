@@ -18,18 +18,34 @@
       li: a[href="#member-talk" data-toggle="tab"] 会员讨论
     .tab-content
       #buffett.tab-pane.active
-        .page-header 每股净利润历史变化图
         .well.well-sm
-          div[ng-controller="LineDiagramController" ng-init="init(#{@stock.id}, '每股净利润历史变化图', {'earnings_per_share':'Earnings Per Share'}, '#chart-earnings-per-share')"]
+          div[ng-controller="LineColumnDiagramController" ng-init="init(#{@stock.id}, 'line', '每股净利润历史变化', {'earnings_per_share':'Earnings Per Share'}, '#chart-earnings-per-share')"]
             #chart-earnings-per-share
-        .page-header 每股净资产历史变化图
         .well.well-sm
-          div[ng-controller="LineDiagramController" ng-init="init(#{@stock.id}, '每股净资产历史变化图', {'net_assets_per_share':'Net Assets Per Share'}, '#chart-net-assets-per-share')"]
+          div[ng-controller="LineColumnDiagramController" ng-init="init(#{@stock.id}, 'line', '每股净资产历史变化', {'net_assets_per_share':'Net Assets Per Share'}, '#chart-net-assets-per-share')"]
             #chart-net-assets-per-share
-        .page-header 净资产收益率历史变化图
         .well.well-sm
-          div[ng-controller="LineDiagramController" ng-init="init(#{@stock.id}, '净资产收益率历史变化图', {'return_on_equity':'Return On Equity'}, '#chart-return-on-equity')"]
+          div[ng-controller="LineColumnDiagramController" ng-init="init(#{@stock.id}, 'line', '净资产收益率历史变化', {'return_on_equity':'Return On Equity'}, '#chart-return-on-equity')"]
             #chart-return-on-equity
+        .well.well-sm
+          div[ng-controller="LineColumnDiagramController" ng-init="init(#{@stock.id}, 'column', '长期借债与流动资金', {'end_of_term_cash':'Cash','current_liabilities':'Debt'}, '#chart-cash-debt')"]
+            #chart-cash-debt
+        .well.well-sm
+          div[ng-controller="LineColumnDiagramController" ng-init="init(#{@stock.id}, 'line', '净利润', {'net_profit':'Net Profit'}, '#chart-net-profit')"]
+            #chart-net-profit
+        .well.well-sm
+          div[ng-controller="LineColumnDiagramController" ng-init="init(#{@stock.id}, 'line', '净利润率', {'net_profit_rate':'Net Profit Rate'}, '#chart-net-profit-rate')"]
+            #chart-net-profit-rate
+        .well.well-sm
+          div[ng-controller="LineColumnDiagramController" ng-init="init(#{@stock.id}, 'column', '资金流量趋势  ', {'business_cash_flow':'Business Cash Flow','investment_cash_flow':'Investment Cash Flow','financing_cash_flow':'Financing Cash Flow'}, '#chart-cash-flow')"]
+            #chart-cash-flow
+        .well.well-sm
+          div[ng-controller="LineColumnDiagramController" ng-init="init(#{@stock.id}, 'line', '市盈率', {'price_earnings_ratio':'P/E Ratio'}, '#chart-price-earnings-ratio')"]
+            #chart-price-earnings-ratio
+        .well.well-sm
+          div[ng-controller="LineColumnDiagramController" ng-init="init(#{@stock.id}, 'line', '股价净值比', {'price_book_ratio':'Price Book Ratio'}, '#chart-price-book-ratio')"]
+            #chart-price-book-ratio
+
 
       #finance-analy.tab-pane 财务分析
       #xizi-index.tab-pane 西子指数

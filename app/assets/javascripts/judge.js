@@ -15,8 +15,8 @@ judgeApp.factory("buffett", ['$resource', function($resource) {
   return $resource('/judge/buffett.json');
 }]);
 
-judgeApp.controller("LineDiagramController", ["$scope", "$http", "buffett", function ($scope, $http, buffett) {
-  $scope.init = function(stock_id, name, columns, replace_id) {
+judgeApp.controller("LineColumnDiagramController", ["$scope", "$http", "buffett", function ($scope, $http, buffett) {
+  $scope.init = function(stock_id, dtype, name, columns, replace_id) {
     buffett.query({id: stock_id}, function(indices) {
       var year_array = [];
       var series_array = [];
@@ -36,7 +36,7 @@ judgeApp.controller("LineDiagramController", ["$scope", "$http", "buffett", func
       }
 
       var options = {
-        chart: { type: 'line' },
+        chart: { type: dtype },
         title: { text: name },
         xAxis: {
           categories: year_array,
