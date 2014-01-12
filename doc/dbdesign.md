@@ -1,7 +1,10 @@
 数据库设计
 ===
 
-#### 财务分析表(数据库表名 financial_analysis 未完) 
+##### 写在前面
+翻译英文部分参考：[中国证监会官方文档](http://www.csrc.gov.cn/pub/newsite/xxfw/ch/)
+
+#### 财务分析表(数据库表名 financial_analyses) 
 
 字段 | 对应表 | 对应字段 | 含义 | _问题?_
 --- | --- | --- | --- | ---
@@ -11,10 +14,10 @@ long_term_loan_total | FS_Combas | A002201000 | 长期借款合计 |
 bond_shall_pay | FS_Combas | A002203000 | 应付债券 |   
 short_term_load_total | FS_Combas | A002101000 | 短期借款合计 |   
 transactional_financial_liability | FS_Combas | A002105000 | 交易性金融负债 |   
-non_current_liabilities_due_within_one_year | FS_Combas | A002125000 | 一年内到期的非流动负债 |   
+noncurrent_liabilities_due_within_one_year | FS_Combas | A002125000 | 一年内到期的非流动负债 |   
 current_liabilities_total | FS_Combas | A002100000 | 流动负债合计 |   
 current_liabilities_other | FS_Combas | A002126000 | 其他流动负债 |   
-non_current_liabilities_total | FS_Combas | A002200000 | 非流动负债合计 |     
+noncurrent_liabilities_total | FS_Combas | A002200000 | 非流动负债合计 |     
 monetary_funds | FS_Combas | A001101000 | 货币资金 |  
 trading_financial_assets | FS_Combas | A001107000 | 交易性金融资产 |  
 short_term_investment_net | FS_Combas | A001109000 | 短期投资净额 |  
@@ -36,7 +39,7 @@ exploit_expenses | FS_Combas | A001219000 | 开发支出 |
 goodwill_net | FS_Combas | A001220000 | 商誉净额 |  
 long_term_prepaid_expenses | FS_Combas | A001221000 | 长期待摊费用 |  
 deferred_income_tax_assets | FS_Combas | A001222000 | 递延所得税资产 |  
-other_non_current_assets | FS_Combas | A001223000 | 其他非流动资产 |  
+other_noncurrent_assets | FS_Combas | A001223000 | 其他非流动资产 |  
 available_for_sale_financial_assets_net | FS_Combas | A001202000 | 可供出售金融资产净额 |  
 held_to_maturity_investments_net | FS_Combas | A001203000 | 持有至到期投资净额 |  
 long_term_receivables_net | FS_Combas | A001204000 | 长期应收款净额 |  
@@ -52,3 +55,24 @@ investment_properties_net | FS_Combas | A001211000 | 投资性房地产净额 |
   * 归属母公司所有者权益合计
 2. 权益该如何翻译? 这里简单翻译成了 _right_
 3. <span style="color: red"> !!! A002101000 A002105000 A002105000 A002201000 A002203000 __文档中为什么出现两次?__</span>
+
+#### 营业分析表(数据库表名 operating_analyses) 
+
+字段 | 对应表 | 对应字段 | 含义 | _问题?_
+--- | --- | --- | --- | ---
+total_operating_income | FS_Comins | B001100000 | 营业总收入 |  
+operating_profit | FS_Comins | B001300000 | 营业利润 |  
+net_profit | FS_Comins | B002000000 | 净利润 |    
+operating_profit_rate | FR_T4 | T40900 | 营业利润率 |   
+
+#### 现金流量表(数据库表名 current_flows) 
+
+字段 | 对应表 | 对应字段 | 含义 | _问题?_
+--- | --- | --- | --- | ---
+operating_generated_current_net | FS_Comscfd | C001000000 | 营业活动产生的现金流量净额 |  
+investment_generated_current_net | FS_Comscfd | C002000000 | 投资活动产生的现金流量净额 |  
+finaning_generated_current_net | FS_Comscfd | C003000000 | 筹资活动产生的现金流量净额 |    
+fix_immaterial_other_payed_cash | FS_Comscfd | C002006000 | 构建固定资产无形资产和其他长期资产支付的现金 | 
+
+
+
