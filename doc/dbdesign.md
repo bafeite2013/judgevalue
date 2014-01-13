@@ -1,5 +1,7 @@
-数据库设计
+数据库设计 deprecated@20140113
 ===
+
+__参考新的数据库设计__
 
 ##### 写在前面
 翻译英文部分参考：[中国证监会官方文档](http://www.csrc.gov.cn/pub/newsite/xxfw/ch/)
